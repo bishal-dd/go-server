@@ -1,0 +1,23 @@
+# GraphQL schema example
+#
+# https://gqlgen.com/getting-started/
+
+type Receipt {
+  id: ID!
+  text: String!
+  done: Boolean!
+  user: User!
+}
+
+type Query {
+  receipts: [Receipt!]!
+}
+
+input NewReceipt {
+  text: String!
+  userId: String!
+}
+
+type Mutation {
+  createReceipt(input: NewReceipt!): Receipt!
+}
