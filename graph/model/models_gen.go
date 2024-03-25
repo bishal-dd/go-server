@@ -28,11 +28,3 @@ type User struct {
 	ID   string `json:"id"`
 	Name string `json:"name"`
 }
-
-type UserMutation struct {
-	CreateReceipt *User `json:"createReceipt"`
-}
-
-type UserQuery struct {
-	Users []*User `json:"users"`
-}

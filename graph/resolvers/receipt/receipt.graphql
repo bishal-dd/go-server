@@ -1,0 +1,15 @@
+# GraphQL schema example
+#
+# https://gqlgen.com/getting-started/
+
+type Receipt {
+  id: ID!
+  text: String!
+  done: Boolean!
+  user: User!
+}
+
+input NewReceipt {
+  text: String!
+  userId: String!
+}

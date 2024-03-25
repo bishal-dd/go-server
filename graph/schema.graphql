@@ -1,0 +1,9 @@
+type Query {
+  receipts: [Receipt!]!
+  users: [User!]!
+}
+
+type Mutation {
+  createReceipt(input: NewReceipt!): Receipt!
+  createUser(input: NewUser!): User!
+}
