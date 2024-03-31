@@ -8,6 +8,7 @@ import (
 	"context"
 	"fmt"
 
+	"github.com/bishal-dd/go-server/graph/loader"
 	"github.com/bishal-dd/go-server/graph/model"
 )
 type UserResolver struct{}
@@ -17,5 +18,11 @@ func (r *UserResolver) CreateUser(ctx context.Context, input model.NewUser) (*mo
 }
 
 func (r *UserResolver) Users(ctx context.Context) ([]*model.User, error) {
-	panic(fmt.Errorf("not implemented: Users - users"))
+	return []*model.User{}, nil
+}
+
+func (r *UserResolver) User(ctx context.Context, id string) (*model.User, error) {
+	loaders := loader.For(ctx)
+	fmt.Println(loaders)
+	return loaders.UserLoader.Load(ctx, id)
 }

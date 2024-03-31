@@ -3,7 +3,6 @@ package db
 import (
 	"log"
 
-	"github.com/bishal-dd/go-server/graph/model"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 )
@@ -15,8 +14,5 @@ func Init() *gorm.DB {
     if err != nil {
         log.Fatalln(err)
     }
-
-    db.AutoMigrate(&model.User{})
-
     return db
 }

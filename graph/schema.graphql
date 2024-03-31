@@ -1,6 +1,7 @@
 type Query {
   receipts: [Receipt!]!
   users: [User!]!
+  user(id: ID!): User
 }
 
 type Mutation {
