@@ -14,7 +14,7 @@ type Loaders struct {
 
 // NewLoaders instantiates data loaders for the middleware
 func NewLoaders(db *gorm.DB) *Loaders {
-    // define the data loader
+
     return &Loaders{
         UserLoader: userLoader.UserLoader(db),
     }

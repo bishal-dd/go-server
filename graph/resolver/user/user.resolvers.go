@@ -23,6 +23,5 @@ func (r *UserResolver) Users(ctx context.Context) ([]*model.User, error) {
 
 func (r *UserResolver) User(ctx context.Context, id string) (*model.User, error) {
 	loaders := loader.For(ctx)
-	fmt.Println(loaders)
 	return loaders.UserLoader.Load(ctx, id)
 }
