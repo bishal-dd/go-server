@@ -6,7 +6,6 @@ import (
 	"github.com/99designs/gqlgen/graphql/handler"
 	"github.com/99designs/gqlgen/graphql/playground"
 	"github.com/bishal-dd/go-server/graph"
-	"github.com/bishal-dd/go-server/graph/loader"
 	resolver "github.com/bishal-dd/go-server/graph/resolver"
 	"github.com/bishal-dd/go-server/pkg/db"
 	"github.com/gin-gonic/gin"
@@ -32,12 +31,11 @@ func playgroundHandler() gin.HandlerFunc {
 }
 
 func main() {
-	database := db.Init()
+	 db.Init()
 	// Setting up Gin
 	log.Printf("connect to http://localhost:%d/graphql for GraphQL playground", 8080)
 	r := gin.Default()
 	r.Use(GinContextToContextMiddleware())
-	r.Use(loader.Middleware(database)) 
 	r.POST("/query", graphqlHandler())
 	r.GET("/graphql", playgroundHandler())
 	r.Run()

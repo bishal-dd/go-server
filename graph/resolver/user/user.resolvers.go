@@ -8,7 +8,6 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/bishal-dd/go-server/graph/loader"
 	"github.com/bishal-dd/go-server/graph/model"
 )
 type UserResolver struct{}
@@ -22,6 +21,5 @@ func (r *UserResolver) Users(ctx context.Context) ([]*model.User, error) {
 }
 
 func (r *UserResolver) User(ctx context.Context, id string) (*model.User, error) {
-	loaders := loader.For(ctx)
-	return loaders.UserLoader.Load(ctx, id)
+	return &model.User{}, nil
 }
