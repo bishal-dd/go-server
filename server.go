@@ -9,6 +9,7 @@ import (
 	resolver "github.com/bishal-dd/go-server/graph/resolver"
 	"github.com/bishal-dd/go-server/pkg/db"
 	"github.com/gin-gonic/gin"
+	"github.com/joho/godotenv"
 )
 
 // Defining the Graphql handler
@@ -32,6 +33,10 @@ func playgroundHandler() gin.HandlerFunc {
 
 func main() {
 	 db.Init()
+	 err := godotenv.Load()
+	 if err != nil {
+	   log.Fatal("Error loading .env file")
+	 }
 	// Setting up Gin
 	log.Printf("connect to http://localhost:%d/graphql for GraphQL playground", 8080)
 	r := gin.Default()
